@@ -97,7 +97,6 @@ var
 begin
   Stream := TMemoryStream.Create;
   try
-    //  imgEnviar.Picture.ToString(Stream);
     imgEnviar.Picture.Graphic.SaveToStream(Stream);
     Result := StreamToHexStr(Stream);
   finally

@@ -23,8 +23,6 @@ object frmPrincipal: TfrmPrincipal
     Height = 425
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 669
-    ExplicitHeight = 435
     object imgEnviar: TImage
       Left = 1
       Top = 1
@@ -44,8 +42,6 @@ object frmPrincipal: TfrmPrincipal
       Height = 41
       Align = alBottom
       TabOrder = 0
-      ExplicitTop = 393
-      ExplicitWidth = 667
       object btnEnviar: TSpeedButton
         Left = 542
         Top = 1
