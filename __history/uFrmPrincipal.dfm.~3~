@@ -1,0 +1,28 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 0
+  Top = 0
+  Caption = 'Principal'
+  ClientHeight = 425
+  ClientWidth = 659
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlFundo: TPanel
+    Left = 0
+    Top = 0
+    Width = 659
+    Height = 425
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = 184
+    ExplicitTop = 104
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+  end
+end
