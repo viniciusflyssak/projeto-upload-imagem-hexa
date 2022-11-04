@@ -1,6 +1,7 @@
 object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Principal'
   ClientHeight = 435

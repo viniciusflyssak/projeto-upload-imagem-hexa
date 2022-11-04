@@ -21,6 +21,8 @@ type
     function geraHexImagem: String;
     procedure imgEnviarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure edtTituloKeyPress(Sender: TObject; var Key: Char);
+    procedure FormResize(Sender: TObject);
     
   private
     FArquivoSelecionado: String;
@@ -56,9 +58,20 @@ begin
   ShowMessage('Imagem inserida com sucesso!');
 end;
 
+procedure TfrmPrincipal.edtTituloKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #$D then
+    btnEnviarClick(Sender);
+end;
+
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
   FArquivoSelecionado := '';
+end;
+
+procedure TfrmPrincipal.FormResize(Sender: TObject);
+begin
+  edtTitulo.Width := btnEnviar.Left - 10;
 end;
 
 function TfrmPrincipal.geraHexImagem: String;

@@ -18,9 +18,10 @@ type
     btnEnviar: TSpeedButton;
     edtTitulo: TEdit;
     procedure btnEnviarClick(Sender: TObject);
-    function geraHexImagem: AnsiString;
+    function geraHexImagem: String;
     procedure imgEnviarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure edtTituloKeyPress(Sender: TObject; var Key: Char);
     
   private
     FArquivoSelecionado: String;
@@ -45,10 +46,10 @@ begin
     raise Exception.Create('Selecione ao menos uma imagem!');
   qryInserir := TFDQuery.Create(nil);
   try
-    //qryInserir.Connection := DM.Connection;
+    qryInserir.Connection := DM.Connection;
     qryInserir.SQL.Add(' insert into imagens values (default, :pTitulo, :pImagem) ');
     qryInserir.ParamByName('pTitulo').Value := edtTitulo.Text;
-    qryInserir.ParamByName('pImagem').Value := geraHexImagem;
+    qryInserir.ParamByName('pImagem').AsBlob := geraHexImagem;
     qryInserir.ExecSQL;
   finally
     FreeAndNil(qryInserir);
@@ -56,13 +57,19 @@ begin
   ShowMessage('Imagem inserida com sucesso!');
 end;
 
+procedure TfrmPrincipal.edtTituloKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #$D then
+    btnEnviarClick(Sender);
+end;
+
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
   FArquivoSelecionado := '';
 end;
 
-function TfrmPrincipal.geraHexImagem: AnsiString;
-  function StreamToHexStr(AStream: TStream): string;
+function TfrmPrincipal.geraHexImagem: String;
+  function StreamToHexStr(AStream: TStream): String;
   const
    HexArr: array[0..15] of char =
    ('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F');
@@ -82,14 +89,18 @@ function TfrmPrincipal.geraHexImagem: AnsiString;
 var
    Stream: TMemoryStream;
 begin
-//  imgEnviar.Picture.ToString(Stream);
-  imgEnviar.Picture.Graphic.SaveToStream(Stream);
-  Result := StreamToHexStr(Stream);
+  Stream := TMemoryStream.Create;
+  try
+    //  imgEnviar.Picture.ToString(Stream);
+    imgEnviar.Picture.Graphic.SaveToStream(Stream);
+    Result := StreamToHexStr(Stream);
+  finally
+    Stream.Free;
+  end;
 end;
 
 procedure TfrmPrincipal.imgEnviarClick(Sender: TObject);
   var 
-    Stream: TMemoryStream;
     png: TPngImage;
   function selecionaArquivo: String;  
   var
