@@ -1,10 +1,9 @@
 object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
-  BorderStyle = bsSingle
   Caption = 'Principal'
-  ClientHeight = 435
-  ClientWidth = 669
+  ClientHeight = 425
+  ClientWidth = 659
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,6 +11,7 @@ object frmPrincipal: TfrmPrincipal
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96
@@ -19,19 +19,17 @@ object frmPrincipal: TfrmPrincipal
   object pnlFundo: TPanel
     Left = 0
     Top = 0
-    Width = 669
-    Height = 435
+    Width = 659
+    Height = 425
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 184
-    ExplicitTop = 104
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    ExplicitWidth = 669
+    ExplicitHeight = 435
     object imgEnviar: TImage
       Left = 1
       Top = 1
-      Width = 667
-      Height = 392
+      Width = 657
+      Height = 382
       Align = alClient
       OnClick = imgEnviarClick
       ExplicitLeft = 0
@@ -41,16 +39,15 @@ object frmPrincipal: TfrmPrincipal
     end
     object pnlBotoes: TPanel
       Left = 1
-      Top = 393
-      Width = 667
+      Top = 383
+      Width = 657
       Height = 41
       Align = alBottom
       TabOrder = 0
-      ExplicitLeft = 312
-      ExplicitTop = 392
-      ExplicitWidth = 185
+      ExplicitTop = 393
+      ExplicitWidth = 667
       object btnEnviar: TSpeedButton
-        Left = 552
+        Left = 542
         Top = 1
         Width = 114
         Height = 39
@@ -63,6 +60,7 @@ object frmPrincipal: TfrmPrincipal
         Font.Style = [fsBold]
         ParentFont = False
         OnClick = btnEnviarClick
+        ExplicitLeft = 552
       end
       object edtTitulo: TEdit
         Left = 1
