@@ -2,13 +2,15 @@ program projEnvioImagens;
 
 uses
   Vcl.Forms,
-  uFrmPrincipal in 'uFrmPrincipal.pas' {Form1};
+  uFrmPrincipal in 'uFrmPrincipal.pas' {frmPrincipal},
+  uDM in 'DM\uDM.pas' {DM: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TDM, DM);
   Application.Run;
 end.
